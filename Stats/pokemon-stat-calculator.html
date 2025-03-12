@@ -287,19 +287,30 @@
     <select id="nature-select" onchange="setNatureEffects()">
         <option value="neutral">Neutral</option>
         <option value="adamant">Adamant (+Attack, -Special Attack)</option>
-        <option value="modest">Modest (+Special Attack, -Attack)</option>
-        <option value="hasty">Hasty (+Speed, -Defense)</option>
         <option value="bold">Bold (+Defense, -Attack)</option>
+        <option value="brave">Brave (+Attack, -Speed)</option>
+        <option value="calm">Calm (+Special Defense, -Attack)</option>
+        <option value="careful">Careful (+Special Defense, -Special Attack)</option>
+        <option value="gentle">Gentle (+Special Defense, -Defense)</option>
+        <option value="hasty">Hasty (+Speed, -Defense)</option>
+        <option value="impish">Impish (+Defense, -Special Attack)</option>
+        <option value="jolly">Jolly (+Speed, -Special Attack)</option>
+        <option value="lax">Lax (+Defense, -Special Defense)</option>
+        <option value="lonely">Lonely (+Attack, -Defense)</option>
+        <option value="mild">Mild (+Special Attack, -Defense)</option>
+        <option value="modest">Modest (+Special Attack, -Attack)</option>
+        <option value="naive">Naive (+Speed, -Special Defense)</option>
+        <option value="naughty">Naughty (+Attack, -Special Defense)</option>
+        <option value="quiet">Quiet (+Special Attack, -Speed)</option>
+        <option value="rash">Rash (+Special Attack, -Special Defense)</option>
+        <option value="relaxed">Relaxed (+Defense, -Speed)</option>
+        <option value="sassy">Sassy (+Special Defense, -Speed)</option>
+        <option value="timid">Timid (+Speed, -Attack)</option>
     </select><br><br>
 
     <h3>Manual Nature Adjustments</h3>
     <div id="nature-controls">
-        <p>For each stat, select whether Nature positively, negatively, or does not influence it.</p>
-
-        <label>HP:</label>
-        <input type="radio" name="nature-hp" value="1.1"> +
-        <input type="radio" name="nature-hp" value="1" checked> Neutral
-        <input type="radio" name="nature-hp" value="0.9"> - <br>
+        <p>For each stat, select whether Nature positively, negatively, or does not influence it.</
 
         <label>Attack:</label>
         <input type="radio" name="nature-attack" value="1.1"> +
