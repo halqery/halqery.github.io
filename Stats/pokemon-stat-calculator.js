@@ -101,10 +101,11 @@ function calculateAdjustedStats() {
 
     function calculateStat(base, el, level, nature) {
         let elb = Math.round((Math.sqrt(base) * elm[Math.min(Math.max(el, 0), 10)] + level) / 2.5);
-        return Math.floor(Math.floor((level / 50 + 1) * base / 1.5) * nature) + elb;
+        let finalValue = Math.floor(((level / 50 + 1) * base / 1.5) * nature + elb); // Final rounding down
+        return finalValue;
     }
 
-    adjustedStats["hp"] = Math.floor((level / 100 + 1) * baseStats["hp"] + level) + Math.round((Math.sqrt(baseStats["hp"]) * elm[Math.min(Math.max(effortLevels.hp, 0), 10)] + level) / 2.5);
+    adjustedStats["hp"] = Math.floor((level / 100 + 1) * baseStats["hp"] + level) + Math.floor((Math.sqrt(baseStats["hp"]) * elm[Math.min(Math.max(effortLevels.hp, 0), 10)] + level) / 2.5);
     adjustedStats["attack"] = calculateStat(baseStats["attack"], effortLevels["attack"], level, natureEffects["attack"]);
     adjustedStats["defense"] = calculateStat(baseStats["defense"], effortLevels["defense"], level, natureEffects["defense"]);
     adjustedStats["special-attack"] = calculateStat(baseStats["special-attack"], effortLevels["special-attack"], level, natureEffects["special-attack"]);
