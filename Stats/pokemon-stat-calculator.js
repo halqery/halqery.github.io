@@ -52,7 +52,7 @@ function setNatureEffects() {
     let nature = document.getElementById("nature-select").value;
     let adjustments = natures[nature] || {};
 
-    // Explicit stat name mapping
+    // Explicit mapping from HTML radio name to API stat names
     const statMapping = {
         "hp": "hp",
         "attack": "attack",
@@ -63,11 +63,11 @@ function setNatureEffects() {
     };
 
     document.querySelectorAll("[name^='nature']").forEach(input => {
-        let htmlStat = input.name.split("-")[1]; // Extracts stat name
-        let statKey = statMapping[htmlStat]; // Maps it to the correct stat name
+        let htmlStat = input.name.split("-")[1]; // Extracts "attack", "defense", etc.
+        let statKey = statMapping[htmlStat]; // Get the correct stat key for API
 
         if (statKey) {
-            let effect = adjustments[statKey] || 1; // Default to neutral (1)
+            let effect = adjustments[statKey] || 1; // Default to 1 if Nature doesn't affect it
             input.checked = (parseFloat(input.value) === effect);
         }
     });
