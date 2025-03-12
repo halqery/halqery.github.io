@@ -101,7 +101,7 @@ function calculateAdjustedStats() {
 
     function calculateStat(base, el, level, nature) {
         let elb = Math.round((Math.abs(Math.sqrt(base) * elm[Math.min(Math.max(el, 0), 10)] + level) / 2.5);
-        return Math.floor(Math.floor(((level / 50 + 1) * base / 1.5) * nature) / 100.0) + elb;
+        return Math.floor(Math.floor((level / 50 + 1) * base / 1.5) * nature) + elb;
     }
 
     adjustedStats["hp"] = Math.floor((level / 100 + 1) * baseStats["hp"] + level) + Math.round((Math.abs(Math.sqrt(baseStats["hp"]) * elm[Math.min(Math.max(effortLevels.hp, 0), 10)] + level) / 2.5);
