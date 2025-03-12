@@ -4,7 +4,7 @@ let baseStats = {}; // Stores base stats after fetching
 
 async function fetchPokemonStats() {
     let pokemonName = document.getElementById("pokemon-select").value.toLowerCase().trim();
-    
+
     if (!pokemonName) return;
 
     let apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
@@ -25,6 +25,7 @@ async function fetchPokemonStats() {
         console.error("Error fetching Pokémon data:", error);
     }
 }
+
 function setNatureEffects() {
     const natures = {
         "adamant": { "attack": 1.1, "special-attack": 0.9 },
@@ -72,34 +73,8 @@ function setNatureEffects() {
         }
     });
 }
-function calculateAdjustedStats() {
-    let level = parseInt(document.getElementById("level").value);
 
-    if (!baseStats["hp"] || isNaN(level) || level < 1) {
-        alert("Please select a Pokémon and enter a valid level.");
-        return;
-    }
-
-    let effortLevels = {
-        "hp": parseInt(document.getElementById("hp-e-level").value) || 0,
-        "attack": parseInt(document.getElementById("attack-e-level").value) || 0,
-        "defense": parseInt(document.getElementById("defense-e-level").value) || 0,
-        "special-attack": parseInt(document.getElementById("special-attack-e-level").value) || 0,
-        "special-defense": parseInt(document.getElementById("special-defense-e-level").value) || 0,
-        "speed": parseInt(document.getElementById("speed-e-level").value) || 0
-    };
-
-    let natureEffects = {
-        "attack": parseFloat(document.querySelector("input[name='nature-attack']:checked").value),
-        "defense": parseFloat(document.querySelector("input[name='nature-defense']:checked").value),
-        "special-attack": parseFloat(document.querySelector("input[name='nature-special-attack']:checked").value),
-        "special-defense": parseFloat(document.querySelector("input[name='nature-special-defense']:checked").value),
-        "speed": parseFloat(document.querySelector("input[name='nature-speed']:checked").value)
-    };
-
-    let adjustedStats = {};
-
-    function calculateStat(base, el, level, nature) {
+function calculateStat(base, el, level, nature) {
     // Calculate elb
     let elb = Math.round((Math.sqrt(base) * elm[Math.min(Math.max(el, 0), 10)] + level) / 2.5);
 
