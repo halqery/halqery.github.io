@@ -1,1 +1,1 @@
-# (Follow me on Twitch)[http://twitch.tv/halqery]
+# [Follow me on Twitch](http://twitch.tv/halqery)
