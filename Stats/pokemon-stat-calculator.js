@@ -28,14 +28,11 @@ async function fetchPokemonStats() {
 function setNatureEffects() {
     const natures = {
         "adamant": { "attack": 1.1, "special-attack": 0.9 },
-        "bashful": { },
         "bold": { "defense": 1.1, "attack": 0.9 },
         "brave": { "attack": 1.1, "speed": 0.9 },
         "calm": { "special-defense": 1.1, "attack": 0.9 },
         "careful": { "special-defense": 1.1, "special-attack": 0.9 },
-        "docile": { },
         "gentle": { "special-defense": 1.1, "defense": 0.9 },
-        "hardy": { },
         "hasty": { "speed": 1.1, "defense": 0.9 },
         "impish": { "defense": 1.1, "special-attack": 0.9 },
         "jolly": { "speed": 1.1, "special-attack": 0.9 },
@@ -46,11 +43,9 @@ function setNatureEffects() {
         "naive": { "speed": 1.1, "special-defense": 0.9 },
         "naughty": { "attack": 1.1, "special-defense": 0.9 },
         "quiet": { "special-attack": 1.1, "speed": 0.9 },
-        "quirky": { },
         "rash": { "special-attack": 1.1, "special-defense": 0.9 },
         "relaxed": { "defense": 1.1, "speed": 0.9 },
         "sassy": { "special-defense": 1.1, "speed": 0.9 },
-        "serious": { },
         "timid": { "speed": 1.1, "attack": 0.9 }
     };
 
@@ -95,7 +90,6 @@ function calculateAdjustedStats() {
     };
 
     let natureEffects = {
-        "hp": parseFloat(document.querySelector("input[name='nature-hp']:checked").value),
         "attack": parseFloat(document.querySelector("input[name='nature-attack']:checked").value),
         "defense": parseFloat(document.querySelector("input[name='nature-defense']:checked").value),
         "special-attack": parseFloat(document.querySelector("input[name='nature-special-attack']:checked").value),
