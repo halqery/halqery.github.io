@@ -27,18 +27,20 @@ async function fetchPokemonStats() {
 }
 function setNatureEffects() {
     const natures = {
-        "adamant": { attack: 1.1, specialAttack: 0.9 },
-        "modest": { attack: 0.9, specialAttack: 1.1 },
-        "hasty": { speed: 1.1, defense: 0.9 },
-        "bold": { attack: 0.9, defense: 1.1 }
+        "adamant": { "attack": 1.1, "special-attack": 0.9 },
+        "modest": { "attack": 0.9, "special-attack": 1.1 },
+        "hasty": { "speed": 1.1, "defense": 0.9 },
+        "bold": { "attack": 0.9, "defense": 1.1 }
     };
 
     let nature = document.getElementById("nature-select").value;
     let adjustments = natures[nature] || {};
 
     document.querySelectorAll("[name^='nature']").forEach(input => {
-        let stat = input.name.split("-")[1];
-        input.checked = (adjustments[stat] || 1) == input.value;
+        let stat = input.name.split("-")[1]; // Extracts "attack", "defense", etc.
+
+        let effect = adjustments[stat] || 1; // Defaults to neutral (1)
+        input.checked = (parseFloat(input.value) === effect);
     });
 }
 function calculateAdjustedStats() {
@@ -53,30 +55,39 @@ function calculateAdjustedStats() {
         hp: parseInt(document.getElementById("hp-e-level").value) || 0,
         attack: parseInt(document.getElementById("attack-e-level").value) || 0,
         defense: parseInt(document.getElementById("defense-e-level").value) || 0,
-        specialAttack: parseInt(document.getElementById("special-attack-e-level").value) || 0,
-        specialDefense: parseInt(document.getElementById("special-defense-e-level").value) || 0,
+        "special-attack": parseInt(document.getElementById("special-attack-e-level").value) || 0,
+        "special-defense": parseInt(document.getElementById("special-defense-e-level").value) || 0,
         speed: parseInt(document.getElementById("speed-e-level").value) || 0
+    };
+
+    let natureEffects = {
+        hp: parseFloat(document.querySelector("input[name='nature-hp']:checked").value),
+        attack: parseFloat(document.querySelector("input[name='nature-attack']:checked").value),
+        defense: parseFloat(document.querySelector("input[name='nature-defense']:checked").value),
+        "special-attack": parseFloat(document.querySelector("input[name='nature-special-attack']:checked").value),
+        "special-defense": parseFloat(document.querySelector("input[name='nature-special-defense']:checked").value),
+        speed: parseFloat(document.querySelector("input[name='nature-speed']:checked").value)
     };
 
     let adjustedStats = {};
 
-    function calculateStat(base, el, level) {
+    function calculateStat(base, el, level, nature) {
         let elb = Math.round((Math.sqrt(base) * elm[Math.min(Math.max(el, 0), 10)] + level) / 2.5);
-        return Math.floor((level / 50 + 1) * base / 1.5) + elb;
+        return Math.floor(Math.floor((level / 50 + 1) * base / 1.5) * nature) + elb;
     }
 
     adjustedStats["hp"] = Math.floor((level / 100 + 1) * baseStats["hp"] + level) + Math.round((Math.sqrt(baseStats["hp"]) * elm[Math.min(Math.max(effortLevels.hp, 0), 10)] + level) / 2.5);
-    adjustedStats["attack"] = calculateStat(baseStats["attack"], effortLevels.attack, level);
-    adjustedStats["defense"] = calculateStat(baseStats["defense"], effortLevels.defense, level);
-    adjustedStats["specialAttack"] = calculateStat(baseStats["special-attack"], effortLevels.specialAttack, level);
-    adjustedStats["specialDefense"] = calculateStat(baseStats["special-defense"], effortLevels.specialDefense, level);
-    adjustedStats["speed"] = calculateStat(baseStats["speed"], effortLevels.speed, level);
+    adjustedStats["attack"] = calculateStat(baseStats["attack"], effortLevels.attack, level, natureEffects.attack);
+    adjustedStats["defense"] = calculateStat(baseStats["defense"], effortLevels.defense, level, natureEffects.defense);
+    adjustedStats["special-attack"] = calculateStat(baseStats["special-attack"], effortLevels["special-attack"], level, natureEffects["special-attack"]);
+    adjustedStats["special-defense"] = calculateStat(baseStats["special-defense"], effortLevels["special-defense"], level, natureEffects["special-defense"]);
+    adjustedStats["speed"] = calculateStat(baseStats["speed"], effortLevels.speed, level, natureEffects.speed);
 
     // Update Display
     document.getElementById("adjusted-hp").textContent = adjustedStats["hp"];
     document.getElementById("adjusted-attack").textContent = adjustedStats["attack"];
     document.getElementById("adjusted-defense").textContent = adjustedStats["defense"];
-    document.getElementById("adjusted-special-attack").textContent = adjustedStats["specialAttack"];
-    document.getElementById("adjusted-special-defense").textContent = adjustedStats["specialDefense"];
+    document.getElementById("adjusted-special-attack").textContent = adjustedStats["special-attack"];
+    document.getElementById("adjusted-special-defense").textContent = adjustedStats["special-defense"];
     document.getElementById("adjusted-speed").textContent = adjustedStats["speed"];
 }
