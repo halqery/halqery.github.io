@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Stat Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Pokémon Stat Calculator</h1>
+
+    <!-- Pokémon Selection -->
+    <label for="pokemon-select">Choose a Pokémon:</label>
+    <select id="pokemon-select" onchange="fetchPokemonStats()">
+    <option value="rowlet">Rowlet</option>
+    <option value="dartrix">Dartrix</option>
+    <option value="decidueye">Decidueye</option>
+    <option value="cyndaquil">Cyndaquil</option>
+    <option value="quilava">Quilava</option>
+    <option value="typhloison">Typhloison</option>
+    <option value="oshawott">Oshawott</option>
+    <option value="dewott">Dewott</option>
+    <option value="samurott">Samurott</option>
+    <option value="bidoof">Bidoof</option>
+    <option value="bibarel">Bibarel</option>
+    <option value="starly">Starly</option>
+    <option value="staravia">Staravia</option>
+    <option value="staraptor">Staraptor</option>
+    <option value="shinx">Shinx</option>
+    <option value="luxio">Luxio</option>
+    <option value="luxray">Luxray</option>
+    <option value="wurmple">Wurmple</option>
+    <option value="silcoon">Silcoon</option>
+    <option value="beautifly">Beautifly</option>
+    <option value="cascoon">Cascoon</option>
+    <option value="dustox">Dustox</option>
+    <option value="ponyta">Ponyta</option>
+    <option value="rapidash">Rapidash</option>
+    <option value="eevee">Eevee</option>
+    <option value="vaporeon">Vaporeon</option>
+    <option value="jolteon">Jolteon</option>
+    <option value="flareon">Flareon</option>
+    <option value="espeon">Espeon</option>
+    <option value="umbreon">Umbreon</option>
+    <option value="leafeon">Leafeon</option>
+    <option value="glaceon">Glaceon</option>
+    <option value="sylveon">Sylveon</option>
+    <option value="zubat">Zubat</option>
+    <option value="golbat">Golbat</option>
+    <option value="crobat">Crobat</option>
+    <option value="drifloon">Drifloon</option>
+    <option value="drifblim">Drifblim</option>
+    <option value="kricketot">Kricketot</option>
+    <option value="kricketune">Kricketune</option>
+    <option value="buizel">Buizel</option>
+    <option value="floatzel">Floatzel</option>
+    <option value="burmy">Burmy</option>
+    <option value="wormadam">Wormadam</option>
+    <option value="mothim">Mothim</option>
+    <option value="geodude">Geodude</option>
+    <option value="graveler">Graveler</option>
+    <option value="golem">Golem</option>
+    <option value="stantler">Stantler</option>
+    <option value="wyrdeer">Wyrdeer</option>
+    <option value="munchlax">Munchlax</option>
+    <option value="snorlax">Snorlax</option>
+    <option value="paras">Paras</option>
+    <option value="parasect">Parasect</option>
+    <option value="pichu">Pichu</option>
+    <option value="pikachu">Pikachu</option>
+    <option value="raichu">Raichu</option>
+    <option value="abra">Abra</option>
+    <option value="kadabra">Kadabra</option>
+    <option value="alakazam">Alakazam</option>
+    <option value="chimchar">Chimchar</option>
+    <option value="monferno">Monferno</option>
+    <option value="infernape">Infernape</option>
+    <option value="buneary">Buneary</option>
+    <option value="lopunny">Lopunny</option>
+    <option value="cherubi">Cherubi</option>
+    <option value="cherrim">Cherrim</option>
+    <option value="psyduck">Psyduck</option>
+    <option value="golduck">Golduck</option>
+    <option value="combee">Combee</option>
+    <option value="vespiquen">Vespiquen</option>
+    <option value="scyther">Scyther</option>
+    <option value="kleavor">Kleavor</option>
+    <option value="scizor">Scizor</option>
+    <option value="heracross">Heracross</option>
+    <option value="mime jr.">Mime Jr.</option>
+    <option value="mr. mime">Mr. Mime</option>
+    <option value="aipom">Aipom</option>
+    <option value="ambipom">Ambipom</option>
+    <option value="magikarp">Magikarp</option>
+    <option value="gyarados">Gyarados</option>
+    <option value="shellos">Shellos</option>
+    <option value="gastrodon">Gastrodon</option>
+    <option value="quilfish">Quilfish</option>
+    <option value="overqwill">Overqwill</option>
+    <option value="happiny">Happiny</option>
+    <option value="chansey">Chansey</option>
+    <option value="blissey">Blissey</option>
+    <option value="budew">Budew</option>
+    <option value="roselia">Roselia</option>
+    <option value="roserade">Roserade</option>
+    <option value="carnivine">Carnivine</option>
+    <option value="petilil">Petilil</option>
+    <option value="lilligant">Lilligant</option>
+    <option value="tangela">Tangela</option>
+    <option value="tangrowth">Tangrowth</option>
+    <option value="barboach">Barboach</option>
+    <option value="whiscash">Whiscash</option>
+    <option value="croagunk">Croagunk</option>
+    <option value="toxicroak">Toxicroak</option>
+    <option value="ralts">Ralts</option>
+    <option value="kirlia">Kirlia</option>
+    <option value="gardevoir">Gardevoir</option>
+    <option value="gallade">Gallade</option>
+    <option value="yanma">Yanma</option>
+    <option value="yanmega">Yanmega</option>
+    <option value="hippopotas">Hippopotas</option>
+    <option value="hippowdon">Hippowdon</option>
+    <option value="pachirisu">Pachirisu</option>
+    <option value="stunky">Stunky</option>
+    <option value="skuntank">Skuntank</option>
+    <option value="teddiursa">Teddiursa</option>
+    <option value="ursaring">Ursaring</option>
+    <option value="ursaluna">Ursaluna</option>
+    <option value="goomy">Goomy</option>
+    <option value="sliggoo">Sliggoo</option>
+    <option value="goodra">Goodra</option>
+    <option value="onix">Onix</option>
+    <option value="steelix">Steelix</option>
+    <option value="rhyhorn">Rhyhorn</option>
+    <option value="rhydon">Rhydon</option>
+    <option value="rhyperior">Rhyperior</option>
+    <option value="bonsly">Bonsly</option>
+    <option value="sudowoodo">Sudowoodo</option>
+    <option value="lickituny">Lickituny</option>
+    <option value="lickilicky">Lickilicky</option>
+    <option value="togepi">Togepi</option>
+    <option value="togetic">Togetic</option>
+    <option value="togekiss">Togekiss</option>
+    <option value="turtwig">Turtwig</option>
+    <option value="grotle">Grotle</option>
+    <option value="torterra">Torterra</option>
+    <option value="porygon">Porygon</option>
+    <option value="porygon-2">Porygon-2</option>
+    <option value="proygon-z">Proygon-Z</option>
+    <option value="gastly">Gastly</option>
+    <option value="haunter">Haunter</option>
+    <option value="gengar">Gengar</option>
+    <option value="spiritomb">Spiritomb</option>
+    <option value="murkrow">Murkrow</option>
+    <option value="honchkrow">Honchkrow</option>
+    <option value="unown">Unown</option>
+    <option value="spheal">Spheal</option>
+    <option value="sealeo">Sealeo</option>
+    <option value="walrein">Walrein</option>
+    <option value="remoraid">Remoraid</option>
+    <option value="octillery">Octillery</option>
+    <option value="skorupui">Skorupui</option>
+    <option value="drapion">Drapion</option>
+    <option value="growlithe">Growlithe</option>
+    <option value="arcanine">Arcanine</option>
+    <option value="glameow">Glameow</option>
+    <option value="purugly">Purugly</option>
+    <option value="machop">Machop</option>
+    <option value="machoke">Machoke</option>
+    <option value="machamp">Machamp</option>
+    <option value="chatot">Chatot</option>
+    <option value="duskull">Duskull</option>
+    <option value="dusclops">Dusclops</option>
+    <option value="dusknoir">Dusknoir</option>
+    <option value="piplup">Piplup</option>
+    <option value="prinplup">Prinplup</option>
+    <option value="empoleon">Empoleon</option>
+    <option value="mantyke">Mantyke</option>
+    <option value="mantine">Mantine</option>
+    <option value="basculin">Basculin</option>
+    <option value="basculegion">Basculegion</option>
+    <option value="vulpix">Vulpix</option>
+    <option value="ninetales">Ninetales</option>
+    <option value="tentacool">Tentacool</option>
+    <option value="tentacruel">Tentacruel</option>
+    <option value="finneon">Finneon</option>
+    <option value="lumineon">Lumineon</option>
+    <option value="magby">Magby</option>
+    <option value="magmar">Magmar</option>
+    <option value="magmortar">Magmortar</option>
+    <option value="magnemite">Magnemite</option>
+    <option value="magneton">Magneton</option>
+    <option value="magnezone">Magnezone</option>
+    <option value="bronzor">Bronzor</option>
+    <option value="bronzong">Bronzong</option>
+    <option value="elekid">Elekid</option>
+    <option value="electabuzz">Electabuzz</option>
+    <option value="electivire">Electivire</option>
+    <option value="gligar">Gligar</option>
+    <option value="gliscor">Gliscor</option>
+    <option value="gible">Gible</option>
+    <option value="gabite">Gabite</option>
+    <option value="garchomp">Garchomp</option>
+    <option value="nosepass">Nosepass</option>
+    <option value="probopass">Probopass</option>
+    <option value="voltorb">Voltorb</option>
+    <option value="electrode">Electrode</option>
+    <option value="rotom">Rotom</option>
+    <option value="chingling">Chingling</option>
+    <option value="chimecho">Chimecho</option>
+    <option value="misdreavus">Misdreavus</option>
+    <option value="mismagius">Mismagius</option>
+    <option value="cleffa">Cleffa</option>
+    <option value="clefairy">Clefairy</option>
+    <option value="clefable">Clefable</option>
+    <option value="sneasel">Sneasel</option>
+    <option value="sneasler">Sneasler</option>
+    <option value="weavile">Weavile</option>
+    <option value="snorunt">Snorunt</option>
+    <option value="glalie">Glalie</option>
+    <option value="froslass">Froslass</option>
+    <option value="cranidos">Cranidos</option>
+    <option value="rampardos">Rampardos</option>
+    <option value="shieldon">Shieldon</option>
+    <option value="bastiodon">Bastiodon</option>
+    <option value="swinub">Swinub</option>
+    <option value="piloswine">Piloswine</option>
+    <option value="mamoswine">Mamoswine</option>
+    <option value="bergmite">Bergmite</option>
+    <option value="avalugg">Avalugg</option>
+    <option value="snover">Snover</option>
+    <option value="abomasnow">Abomasnow</option>
+    <option value="zora">Zora</option>
+    <option value="zoroark">Zoroark</option>
+    <option value="rufflet ">Rufflet </option>
+    <option value="braviary">Braviary</option>
+    <option value="riolu">Riolu</option>
+    <option value="lucario">Lucario</option>
+    <option value="uxie">Uxie</option>
+    <option value="mesprit">Mesprit</option>
+    <option value="azelf">Azelf</option>
+    <option value="heatran">Heatran</option>
+    <option value="regigigas">Regigigas</option>
+    <option value="cresselia">Cresselia</option>
+    <option value="tornadus">Tornadus</option>
+    <option value="thundurus">Thundurus</option>
+    <option value="landorus">Landorus</option>
+    <option value="enamorus">Enamorus</option>
+    <option value="dialga">Dialga</option>
+    <option value="palkia">Palkia</option>
+    <option value="giratina">Giratina</option>
+    <option value="arceus">Arceus</option>
+    <option value="phione">Phione</option>
+    <option value="manaphy">Manaphy</option>
+    <option value="shaymin">Shaymin</option>
+    <option value="darkrai">Darkrai</option>
+</select><br><br>
+
+    <!-- Level Input -->
+    <label for="level">Level:</label>
+    <input type="number" id="level" name="level" min="1" max="100"><br><br>
+
+    <!-- Effort Level Inputs -->
+    <h3>Effort Levels (0-10)</h3>
+    <label for="hp-e-level">HP Effort Level:</label>
+    <input type="number" id="hp-e-level" min="0" max="10"><br><br>
+
+    <label for="attack-e-level">Attack Effort Level:</label>
+    <input type="number" id="attack-e-level" min="0" max="10"><br><br>
+
+    <label for="defense-e-level">Defense Effort Level:</label>
+    <input type="number" id="defense-e-level" min="0" max="10"><br><br>
+
+    <label for="special-attack-e-level">Special Attack Effort Level:</label>
+    <input type="number" id="special-attack-e-level" min="0" max="10"><br><br>
+
+    <label for="special-defense-e-level">Special Defense Effort Level:</label>
+    <input type="number" id="special-defense-e-level" min="0" max="10"><br><br>
+
+    <label for="speed-e-level">Speed Effort Level:</label>
+    <input type="number" id="speed-e-level" min="0" max="10"><br><br>
+
+    <!-- Nature Selection -->
+    <h3>Nature Selection</h3>
+    <label for="nature-select">Choose a Nature:</label>
+    <select id="nature-select" onchange="setNatureEffects()">
+        <option value="neutral">Neutral</option>
+        <option value="adamant">Adamant (+Attack, -Special Attack)</option>
+        <option value="modest">Modest (+Special Attack, -Attack)</option>
+        <option value="hasty">Hasty (+Speed, -Defense)</option>
+        <option value="bold">Bold (+Defense, -Attack)</option>
+    </select><br><br>
+
+    <h3>Manual Nature Adjustments</h3>
+    <div id="nature-controls">
+        <p>For each stat, select whether Nature positively, negatively, or does not influence it.</p>
+
+        <label>HP:</label>
+        <input type="radio" name="nature-hp" value="1.1"> +
+        <input type="radio" name="nature-hp" value="1" checked> Neutral
+        <input type="radio" name="nature-hp" value="0.9"> - <br>
+
+        <label>Attack:</label>
+        <input type="radio" name="nature-attack" value="1.1"> +
+        <input type="radio" name="nature-attack" value="1" checked> Neutral
+        <input type="radio" name="nature-attack" value="0.9"> - <br>
+
+        <label>Defense:</label>
+        <input type="radio" name="nature-defense" value="1.1"> +
+        <input type="radio" name="nature-defense" value="1" checked> Neutral
+        <input type="radio" name="nature-defense" value="0.9"> - <br>
+
+        <label>Special Attack:</label>
+        <input type="radio" name="nature-special-attack" value="1.1"> +
+        <input type="radio" name="nature-special-attack" value="1" checked> Neutral
+        <input type="radio" name="nature-special-attack" value="0.9"> - <br>
+
+        <label>Special Defense:</label>
+        <input type="radio" name="nature-special-defense" value="1.1"> +
+        <input type="radio" name="nature-special-defense" value="1" checked> Neutral
+        <input type="radio" name="nature-special-defense" value="0.9"> - <br>
+
+        <label>Speed:</label>
+        <input type="radio" name="nature-speed" value="1.1"> +
+        <input type="radio" name="nature-speed" value="1" checked> Neutral
+        <input type="radio" name="nature-speed" value="0.9"> - <br>
+    </div>
+
+    <button onclick="calculateAdjustedStats()">Calculate Adjusted Stats</button>
+
+    <h2>Adjusted Stats</h2>
+    <p><strong>HP:</strong> <span id="adjusted-hp">N/A</span></p>
+    <p><strong>Attack:</strong> <span id="adjusted-attack">N/A</span></p>
+    <p><strong>Defense:</strong> <span id="adjusted-defense">N/A</span></p>
+    <p><strong>Special Attack:</strong> <span id="adjusted-special-attack">N/A</span></p>
+    <p><strong>Special Defense:</strong> <span id="adjusted-special-defense">N/A</span></p>
+    <p><strong>Speed:</strong> <span id="adjusted-speed">N/A</span></p>
+
+    <script src="pokemon-stat-calculator.js"></script>
+
+</body>
+</html>
