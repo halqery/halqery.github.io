@@ -105,7 +105,7 @@ function calculateAdjustedStats() {
         return finalValue;
     }
 
-    adjustedStats["hp"] = Math.floor((level / 100 + 1) * baseStats["hp"] + level) + Math.floor((Math.sqrt(baseStats["hp"]) * elm[Math.min(Math.max(effortLevels.hp, 0), 10)] + level) / 2.5);
+    adjustedStats["hp"] = Math.floor((level / 100 + 1) * baseStats["hp"] + level) + Math.round((Math.sqrt(baseStats["hp"]) * elm[Math.min(Math.max(effortLevels.hp, 0), 10)] + level) / 2.5);
     adjustedStats["attack"] = calculateStat(baseStats["attack"], effortLevels["attack"], level, natureEffects["attack"]);
     adjustedStats["defense"] = calculateStat(baseStats["defense"], effortLevels["defense"], level, natureEffects["defense"]);
     adjustedStats["special-attack"] = calculateStat(baseStats["special-attack"], effortLevels["special-attack"], level, natureEffects["special-attack"]);
