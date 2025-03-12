@@ -63,11 +63,11 @@ function setNatureEffects() {
     };
 
     document.querySelectorAll("[name^='nature']").forEach(input => {
-        let htmlStat = input.name.split("-")[1]; // Extracts "attack", "defense", etc.
+        let htmlStat = input.name.replace("nature-", ""); // Extracts correct stat name
         let statKey = statMapping[htmlStat]; // Get the correct stat key for API
 
         if (statKey) {
-            let effect = adjustments[statKey] || 1; // Default to 1 if Nature doesn't affect it
+            let effect = adjustments[statKey] !== undefined ? adjustments[statKey] : 1.0;
             input.checked = (parseFloat(input.value) === effect);
         }
     });
