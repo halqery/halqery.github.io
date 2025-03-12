@@ -100,11 +100,44 @@ function calculateAdjustedStats() {
     let adjustedStats = {};
 
     function calculateStat(base, el, level, nature) {
-        let elb = Math.round((Math.abs(Math.sqrt(base) * elm[Math.min(Math.max(el, 0), 10)] + level) / 2.5);
-        return Math.floor(Math.floor((level / 50 + 1) * base / 1.5) * nature) + elb;
+    // Calculate elb
+    let elb = Math.round((Math.sqrt(base) * elm[Math.min(Math.max(el, 0), 10)] + level) / 2.5);
+
+    // Calculate the main formula, flooring (level / 50 + 1) * base before dividing by 1.5
+    let mainFormula = Math.floor(Math.floor((level / 50 + 1) * base) / 1.5) * nature;
+
+    // Return the final stat
+    return Math.floor(mainFormula) + elb;
+}
+
+function calculateAdjustedStats() {
+    let level = parseInt(document.getElementById("level").value);
+
+    if (!baseStats["hp"] || isNaN(level) || level < 1) {
+        alert("Please select a Pokémon and enter a valid level.");
+        return;
     }
 
-    adjustedStats["hp"] = Math.floor((level / 100 + 1) * baseStats["hp"] + level) + Math.round((Math.abs(Math.sqrt(baseStats["hp"]) * elm[Math.min(Math.max(effortLevels.hp, 0), 10)] + level) / 2.5);
+    let effortLevels = {
+        "hp": parseInt(document.getElementById("hp-e-level").value) || 0,
+        "attack": parseInt(document.getElementById("attack-e-level").value) || 0,
+        "defense": parseInt(document.getElementById("defense-e-level").value) || 0,
+        "special-attack": parseInt(document.getElementById("special-attack-e-level").value) || 0,
+        "special-defense": parseInt(document.getElementById("special-defense-e-level").value) || 0,
+        "speed": parseInt(document.getElementById("speed-e-level").value) || 0
+    };
+
+    let natureEffects = {
+        "attack": parseFloat(document.querySelector("input[name='nature-attack']:checked").value),
+        "defense": parseFloat(document.querySelector("input[name='nature-defense']:checked").value),
+        "special-attack": parseFloat(document.querySelector("input[name='nature-special-attack']:checked").value),
+        "special-defense": parseFloat(document.querySelector("input[name='nature-special-defense']:checked").value),
+        "speed": parseFloat(document.querySelector("input[name='nature-speed']:checked").value)
+    };
+
+    let adjustedStats = {};
+
+    adjustedStats["hp"] = Math.floor((level / 100 + 1) * baseStats["hp"] + level) + Math.round((Math.sqrt(baseStats["hp"]) * elm[Math.min(Math.max(effortLevels.hp, 0), 10)] + level) / 2.5);
     adjustedStats["attack"] = calculateStat(baseStats["attack"], effortLevels["attack"], level, natureEffects["attack"]);
     adjustedStats["defense"] = calculateStat(baseStats["defense"], effortLevels["defense"], level, natureEffects["defense"]);
     adjustedStats["special-attack"] = calculateStat(baseStats["special-attack"], effortLevels["special-attack"], level, natureEffects["special-attack"]);
