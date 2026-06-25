@@ -1,5 +1,29 @@
 title: [halqery]
 description: ["Pokémon Legends: Arceus Speedrunner"]
 remote_theme: abhinavs/moonwalk
+
+theme_config:
+  appearance: "dark" # can be "light", "dark" or "auto"
+  appearance_toggle: true # if appearance can be switched by user
+  date_format: "%Y-%m-%d" # customize how date is formatted
+  show_description: true # show blog description
+  show_navbar: true # show horizontal navbar
+  show_footer: true # show footer links in home page,add in _data/home.yml
+  show_copyright: true # show copyright notice in footer
+  # following keys are using to create home layout
+  show_projects: true # show projects as cards, add in _data/home.yml
+  show_blog: true # show blog posts added in _posts
+  show_old_projects: true # show old projects as cards, add in _data/home.yml
+  show_misc_list: false # show generic vertical list for misc details, add _data/home.yml
+  show_reading_time: true # show number of words and reading time in the blog posts
+  show_tags: true # show tags in a blog posts
+  show_code_copy: true # show copy button on code blocks
+  show_progress_bar: true # show reading progress bar on posts
+  show_back_to_top: true # show back-to-top button
+  show_post_nav: true # show prev/next links on posts
+  show_toc: true # allow per-post table of contents via toc: true front matter
+  show_footnote_tooltips: true # show footnote text on hover instead of scrolling to bottom
+  show_link_previews: true # show preview cards when hovering internal post links
+
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
