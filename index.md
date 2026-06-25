@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Halqery - Pokémon Legends: Arceus Speedrunner
+title: "Halqery - Pokémon Legends: Arceus Speedrunner"
 ---
 
 # Hello, world!
