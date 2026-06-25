@@ -1,9 +1,9 @@
 navbar_entries:
   - title: Home
-    url: https://halqery.live
+    url: https://www.halqery.live
 
   - title: About
-    url: about
+    url: /about
 
 project_entries:
   - title: Legends Arceus Stat Calculator
