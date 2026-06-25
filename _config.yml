@@ -1,6 +1,5 @@
 title: "halqery"
 description: "Pokemon Legends: Arceus Speedrunner"
-remote_theme: abhinavs/moonwalk@c84f777
 
 permalink: /:slug
 
@@ -30,7 +29,6 @@ sass:
   style: :compressed
 
 plugins:
-  - jekyll-remote-theme
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
