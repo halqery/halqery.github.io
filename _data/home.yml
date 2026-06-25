@@ -1,0 +1,11 @@
+navbar_entries:
+  - title: Home
+    url: /
+  - title: About
+    url: /about
+
+project_entries:
+  - title: "Follow me on Twitch"
+    url: "https://twitch.tv/halqery"
+  - title: "Pokemon Stat Calculator"
+    url: /calculator
