@@ -9,6 +9,7 @@ project_entries:
   - title: Legends Arceus Stat Calculator
     url: /Stats/pokemon-stat-calculator.html
     desc: This is an tool for determining the expected stats of a Pokémon in Pokémon Legends: Arceus.
+    highlight: WIP
 
 footer_entries:
   - title: homepage
