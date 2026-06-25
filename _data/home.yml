@@ -19,11 +19,14 @@ footer_entries:
   - title: twitter
     url: https://twitter.com/halqery
 
-  - title: github
-    url: https://github.com/halqery
+  - title: bluesky
+    url: https://bsky.app/profile/halq.bsky.social
 
   - title: youtube
     url: https://youtube.com/halqery
 
   - title: discord
     url: https://discord.gg/zMgfVJaNYK
+
+  - title: github
+    url: https://github.com/halqery
