@@ -1,15 +1,11 @@
 navbar_entries:
   - title: Home
-    url: 
+    url: https://halqery.live
 
   - title: About
     url: about
 
-project_entries:
-  - title: "Follow me on Twitch"
-    url: "https://twitch.tv/halqery"
-
-  - title: "Pokemon Stat Calculator"
+  - title: Calculator
     url: /Stats/pokemon-stat-calculator.html
 
 footer_entries:
