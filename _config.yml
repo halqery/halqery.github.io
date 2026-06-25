@@ -2,6 +2,12 @@ title: [halqery]
 description: ["Pokémon Legends: Arceus Speedrunner"]
 remote_theme: abhinavs/moonwalk
 
+permalink: /:slug
+
+twitter:
+  username: halqery # update or delete this
+  card: summary_large_image
+
 theme_config:
   appearance: "dark" # can be "light", "dark" or "auto"
   appearance_toggle: true # if appearance can be switched by user
