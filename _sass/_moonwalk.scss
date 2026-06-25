@@ -35,7 +35,7 @@ h2 {
   font-weight: 600;
   line-height: 1.2;
 }
-h3 { font-size: clamp(1.1rem, 1rem + 0.4vw, 1.25rem); letter-spacing: -0.01em; font-weight: 600; }
+h3 { font-size: clamp(1.1rem, calc(1rem + 0.4vw), 1.25rem); letter-spacing: -0.01em; font-weight: 600; }
 h2, h3, h4, h5 { margin-top: 1.6em; }
 
 hr { margin: 1em 0; }
