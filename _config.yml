@@ -1,6 +1,6 @@
 title: "halqery"
 description: "Pokemon Legends: Arceus Speedrunner"
-remote_theme: abhinavs/moonwalk
+remote_theme: abhinavs/moonwalk@c84f777
 
 permalink: /:slug
 
