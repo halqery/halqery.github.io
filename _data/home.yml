@@ -1,9 +1,9 @@
 navbar_entries:
   - title: Home
-    url: /
+    url: 
 
   - title: About
-    url: /about
+    url: about
 
 project_entries:
   - title: "Follow me on Twitch"
