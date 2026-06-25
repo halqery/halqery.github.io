@@ -25,5 +25,29 @@ theme_config:
   show_footnote_tooltips: true # show footnote text on hover instead of scrolling to bottom
   show_link_previews: true # show preview cards when hovering internal post links
 
+highlighter: rouge
+
+sass:
+  style: :compressed
+
 plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-soopr-seo-tag
+  - jekyll-markdown-output
+  - jekyll-llms-output
+
+# Emit a clean .md sibling for each post (e.g. /foo -> /foo.md) so AI agents
+# can fetch source Markdown instead of parsing HTML. Set enabled: false to disable.
+markdown_output:
+  collections: [posts]
+
+# Emit /llms.txt (curated index) and /llms-full.txt (full content) so agents
+# can discover and ingest the site. See https://llmstxt.org for the spec.
+llms_output:
+  index:
+    collections: [posts]
+  full:
+    collections: [posts]
+    respect_markdown_output: true
