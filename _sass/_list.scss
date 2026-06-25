@@ -6,6 +6,7 @@ ul.horizontal-list {
   flex-wrap: wrap;
   font-family: var(--font-sans);
   gap: 0.8em;
+  justify-content: center;
 
   li {
     display: inline;
