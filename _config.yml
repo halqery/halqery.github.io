@@ -25,9 +25,7 @@ theme_config:
 
 highlighter: rouge
 
-sass:
-  style: :compressed
-
+# Plugins for a stable, local build
 plugins:
   - jekyll-feed
   - jekyll-sitemap
